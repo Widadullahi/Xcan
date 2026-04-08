@@ -50,8 +50,8 @@ const CorporateSection = () => {
             <p className="mb-4">
               Our commitment is to treat every customer with honesty and integrity. We provide 
               complete truck solutions - from complete vehicles to engines, gearboxes, axles, 
-              suspensions, and all spare parts. After payment, we handle waybill and delivery 
-              directly to your location.
+              suspensions, springs, and all genuine spare parts. After payment, we handle waybill 
+              and delivery directly to your location.
             </p>
             <div className="d-flex flex-wrap gap-3">
               <Button 

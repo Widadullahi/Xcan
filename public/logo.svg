@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="200" height="64" viewBox="0 0 200 64" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <!-- Background -->
+  <rect width="200" height="64" rx="12" fill="white"/>
+  
+  <!-- Truck Icon -->
+  <g transform="translate(20, 16)">
+    <!-- Truck Body -->
+    <rect x="0" y="16" width="40" height="24" rx="4" fill="#0056b3"/>
+    <!-- Truck Cab -->
+    <rect x="32" y="8" width="24" height="16" rx="3" fill="#003d82"/>
+    <!-- Wheels -->
+    <circle cx="12" cy="40" r="8" fill="#212529"/>
+    <circle cx="12" cy="40" r="4" fill="#6c757d"/>
+    <circle cx="44" cy="40" r="8" fill="#212529"/>
+    <circle cx="44" cy="40" r="4" fill="#6c757d"/>
+    <!-- Window -->
+    <rect x="36" y="12" width="12" height="8" rx="2" fill="#e3f2fd"/>
+  </g>
+  
+  <!-- Text -->
+  <g transform="translate(80, 16)">
+    <!-- XCAN -->
+    <text x="0" y="20" font-family="Arial, sans-serif" font-size="20" font-weight="800" fill="#003366">XCAN</text>
+    <!-- ENGINEERING -->
+    <text x="0" y="40" font-family="Arial, sans-serif" font-size="12" font-weight="600" fill="#6c757d">ENGINEERING</text>
+  </g>
+  
+  <!-- Decorative line -->
+  <rect x="80" y="44" width="40" height="2" rx="1" fill="#0056b3"/>
+</svg>

@@ -1,6 +1,5 @@
 import React, { useState } from 'react';
-import { Container, Row, Col, Card, Badge, Button } from 'react-bootstrap';
-import { FaWhatsapp, FaFileAlt, FaSyncAlt } from 'react-icons/fa';
+import { Container, Row, Col } from 'react-bootstrap';
 import TruckCard from '../ui/TruckCard';
 
 const TrucksSection = () => {
@@ -68,10 +67,6 @@ const TrucksSection = () => {
             2025 Manufacturing Year with 1-year comprehensive warranty and free after-sales service
           </p>
         </div>
-        
-        <div className="whatsapp-notice">
-          <FaWhatsapp /> All inquiries through WhatsApp: +234 703 470 0040
-        </div>
 
         <Row>
           {trucksData.map((truck) => (
@@ -83,37 +78,6 @@ const TrucksSection = () => {
             </Col>
           ))}
         </Row>
-        
-        {/* Refurbished Trucks */}
-        <Card className="mt-4">
-          <Card.Body>
-            <Row className="align-items-center">
-              <Col md={8}>
-                <h5 className="card-title">CERTIFIED REFURBISHED HOWO & SINOTRUK TRUCKS</h5>
-                <p className="text-gray">
-                  High-quality refurbished HOWO and Sinotruk trucks with complete overhaul 
-                  and performance verification. Cost-effective solutions with certified quality.
-                </p>
-                <div className="d-flex flex-wrap gap-3 mt-3">
-                  <Badge bg="primary">Engine Overhaul</Badge>
-                  <Badge bg="primary">Body Refurbishment</Badge>
-                  <Badge bg="primary">Performance Tested</Badge>
-                  <Badge bg="success">HOWO Certified</Badge>
-                  <Badge bg="success">Sinotruk Certified</Badge>
-                </div>
-              </Col>
-              <Col md={4} className="text-end mt-3 mt-md-0">
-                <Button 
-                  variant="primary" 
-                  href="https://wa.me/2347034700040?text=Hello%20XCAN!%20I'm%20interested%20in%20CERTIFIED%20REFURBISHED%20HOWO%20or%20SINOTRUK%20TRUCKS.%20Please%20send%20available%20options."
-                  target="_blank"
-                >
-                  <FaSyncAlt /> View Refurbished Trucks
-                </Button>
-              </Col>
-            </Row>
-          </Card.Body>
-        </Card>
       </Container>
     </section>
   );

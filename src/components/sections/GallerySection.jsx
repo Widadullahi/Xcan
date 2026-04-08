@@ -1,64 +1,152 @@
 import React, { useState } from 'react';
-import { Container, Row, Col, Card, Modal, Button } from 'react-bootstrap';
-import { FaTruck, FaCog, FaTools, FaShippingFast } from 'react-icons/fa';
+import { Container, Row, Col, Card, Button } from 'react-bootstrap';
+import { FaTruck, FaCog, FaTools, FaShippingFast, FaChevronLeft, FaChevronRight } from 'react-icons/fa';
 
 const GallerySection = () => {
-  const [showModal, setShowModal] = useState(false);
-  const [selectedImage, setSelectedImage] = useState(null);
+  const [currentIndex, setCurrentIndex] = useState(0);
+
+  // Auto-advance gallery every 3 seconds
+  React.useEffect(() => {
+    const interval = setInterval(() => {
+      setCurrentIndex((prevIndex) => 
+        prevIndex === galleryItems.length - 1 ? 0 : prevIndex + 1
+      );
+    }, 3000);
+    return () => clearInterval(interval);
+  }, []);
 
   const galleryItems = [
     {
       id: 1,
-      image: '/images/7.jpeg',
-      title: 'HOWO 45 Tons Heavy Duty Truck',
+      image: '/images/1.jpeg',
+      title: 'Heavy Duty Truck',
       category: 'Trucks',
       icon: <FaTruck />
     },
     {
       id: 2,
-      image: '/images/13.jpeg',
-      title: 'SINOTRUK 30 Tons Heavy Duty Truck',
-      category: 'Trucks',
-      icon: <FaTruck />
-    },
-    {
-      id: 3,
-      image: '/images/ceo.png',
-      title: 'Chukwuebuka David Edeh - Lead Engineer',
-      category: 'Team',
-      icon: <FaTools />
-    },
-    {
-      id: 4,
-      image: 'https://images.unsplash.com/photo-1601584115197-04ecc0da31d7?w=400',
-      title: 'Engine Assembly',
+      image: '/images/2.jpeg',
+      title: 'Truck Suspension System',
       category: 'Parts',
       icon: <FaCog />
     },
     {
+      id: 3,
+      image: '/images/3.jpeg',
+      title: 'Engine & Gearbox',
+      category: 'Parts',
+      icon: <FaCog />
+    },
+    {
+      id: 4,
+      image: '/images/4.jpeg',
+      title: 'Truck Service',
+      category: 'Services',
+      icon: <FaTools />
+    },
+    {
       id: 5,
-      image: 'https://images.unsplash.com/photo-1562408590-e32931084e23?w=400',
-      title: 'Transmission System',
+      image: '/images/5.jpeg',
+      title: 'Spare Parts',
       category: 'Parts',
       icon: <FaCog />
     },
     {
       id: 6,
-      image: 'https://images.unsplash.com/photo-1558494949-ef010cbdcc31?w=400',
-      title: 'Delivery Service',
-      category: 'Service',
-      icon: <FaShippingFast />
+      image: '/images/6.jpeg',
+      title: 'Heavy Duty Truck',
+      category: 'Trucks',
+      icon: <FaTruck />
+    },
+    {
+      id: 7,
+      image: '/images/7.jpeg',
+      title: 'HOWO Heavy Duty Truck',
+      category: 'Trucks',
+      icon: <FaTruck />
+    },
+    {
+      id: 8,
+      image: '/images/8.jpeg',
+      title: 'Truck Maintenance',
+      category: 'Services',
+      icon: <FaTools />
+    },
+    {
+      id: 9,
+      image: '/images/9.jpeg',
+      title: 'Heavy Duty Truck',
+      category: 'Trucks',
+      icon: <FaTruck />
+    },
+    {
+      id: 10,
+      image: '/images/10.jpeg',
+      title: 'Truck Parts',
+      category: 'Parts',
+      icon: <FaCog />
+    },
+    {
+      id: 11,
+      image: '/images/11.jpeg',
+      title: 'Heavy Duty Truck',
+      category: 'Trucks',
+      icon: <FaTruck />
+    },
+    {
+      id: 12,
+      image: '/images/12.jpeg',
+      title: 'Complete Truck',
+      category: 'Trucks',
+      icon: <FaTruck />
+    },
+    {
+      id: 13,
+      image: '/images/13.jpeg',
+      title: 'SINOTRUK Heavy Duty Truck',
+      category: 'Trucks',
+      icon: <FaTruck />
+    },
+    {
+      id: 14,
+      image: '/images/14.jpeg',
+      title: 'Truck Service',
+      category: 'Services',
+      icon: <FaTools />
+    },
+    {
+      id: 15,
+      image: '/images/15.jpeg',
+      title: 'Heavy Duty Truck',
+      category: 'Trucks',
+      icon: <FaTruck />
+    },
+    {
+      id: 16,
+      image: '/images/16.jpeg',
+      title: 'Truck Parts',
+      category: 'Parts',
+      icon: <FaCog />
+    },
+    {
+      id: 17,
+      image: '/images/17.jpeg',
+      title: 'Heavy Duty Truck',
+      category: 'Trucks',
+      icon: <FaTruck />
     }
   ];
 
-  const handleImageClick = (item) => {
-    setSelectedImage(item);
-    setShowModal(true);
+  const nextSlide = () => {
+    setCurrentIndex((prevIndex) => 
+      prevIndex === galleryItems.length - 1 ? 0 : prevIndex + 1
+    );
   };
 
-  const handleClose = () => {
-    setShowModal(false);
-    setSelectedImage(null);
+  const prevSlide = () => {
+    setCurrentIndex((prevIndex) => 
+      prevIndex === 0 ? galleryItems.length - 1 : prevIndex - 1
+    );
   };
 
   return (
@@ -71,35 +159,58 @@ const GallerySection = () => {
           </p>
         </div>
 
-        <Row>
-          {galleryItems.map((item) => (
-            <Col md={4} lg={3} key={item.id} className="mb-4">
-              <Card 
-                className="gallery-card h-100"
-                style={{ cursor: 'pointer' }}
-                onClick={() => handleImageClick(item)}
-              >
-                <div className="gallery-image-wrapper">
-                  <Card.Img 
-                    variant="top" 
-                    src={item.image} 
-                    alt={item.title}
-                    style={{ height: '200px', objectFit: 'cover' }}
-                  />
-                  <div className="gallery-overlay">
-                    {item.icon}
-                  </div>
+        <div className="position-relative d-flex justify-content-center align-items-center" style={{ minHeight: '450px' }}>
+          <button 
+            className="carousel-nav-btn prev" 
+            onClick={prevSlide}
+            aria-label="Previous image"
+          >
+            <FaChevronLeft size={24} />
+          </button>
+
+          <div className="gallery-single-slide mx-auto" style={{ maxWidth: '700px' }}>
+            <Card className="gallery-card-single shadow-lg" style={{ overflow: 'hidden', borderRadius: '16px' }}>
+              <div className="gallery-image-wrapper-single">
+                <Card.Img 
+                  variant="top" 
+                  src={galleryItems[currentIndex].image} 
+                  alt={galleryItems[currentIndex].title}
+                  style={{ height: '400px', objectFit: 'cover' }}
+                  className="gallery-transition"
+                />
+                <div className="gallery-overlay-single">
+                  {galleryItems[currentIndex].icon}
                 </div>
-                <Card.Body>
-                  <Card.Title className="fs-6 mb-1">{item.title}</Card.Title>
-                  <Card.Text className="text-muted small mb-0">
-                    {item.category}
-                  </Card.Text>
-                </Card.Body>
-              </Card>
-            </Col>
+              </div>
+              <Card.Body className="text-center py-4">
+                <Card.Title className="fs-4 mb-2">{galleryItems[currentIndex].title}</Card.Title>
+                <Card.Text className="text-muted">
+                  <span className="badge bg-primary px-3 py-2">{galleryItems[currentIndex].category}</span>
+                </Card.Text>
+              </Card.Body>
+            </Card>
+          </div>
+
+          <button 
+            className="carousel-nav-btn next" 
+            onClick={nextSlide}
+            aria-label="Next image"
+          >
+            <FaChevronRight size={24} />
+          </button>
+        </div>
+
+        {/* Dots indicator */}
+        <div className="gallery-dots d-flex justify-content-center gap-2 mt-4">
+          {galleryItems.map((_, index) => (
+            <button
+              key={index}
+              className={`dot ${index === currentIndex ? 'active' : ''}`}
+              onClick={() => setCurrentIndex(index)}
+              aria-label={`Go to slide ${index + 1}`}
+            />
           ))}
-        </Row>
+        </div>
 
         <Row className="mt-4">
           <Col className="text-center">
@@ -115,25 +226,6 @@ const GallerySection = () => {
             </Button>
           </Col>
         </Row>
-
-        <Modal show={showModal} onHide={handleClose} size="lg" centered>
-          <Modal.Header closeButton>
-            <Modal.Title>{selectedImage?.title}</Modal.Title>
-          </Modal.Header>
-          <Modal.Body className="text-center">
-            {selectedImage && (
-              <>
-                <img 
-                  src={selectedImage.image} 
-                  alt={selectedImage.title}
-                  className="img-fluid"
-                  style={{ maxHeight: '70vh', objectFit: 'contain' }}
-                />
-                <p className="mt-3 text-muted">{selectedImage.category}</p>
-              </>
-            )}
-          </Modal.Body>
-        </Modal>
       </Container>
     </section>
   );

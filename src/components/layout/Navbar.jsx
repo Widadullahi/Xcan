@@ -1,81 +1,73 @@
-import React, { useState } from 'react';
-import { Container, Navbar as BootstrapNavbar, Nav, Button } from 'react-bootstrap';
-import { FaTruck, FaBars, FaCalendarAlt } from 'react-icons/fa';
+import React from 'react';
+import { Container, Navbar as BootstrapNavbar } from 'react-bootstrap';
+import { FaWhatsapp } from 'react-icons/fa';
 
 const NavbarComponent = () => {
-  const [expanded, setExpanded] = useState(false);
-
-  const navItems = [
-    { href: '#home', label: 'Home' },
-    { href: '#trucks', label: 'Trucks' },
-    { href: '#parts', label: 'Parts' },
-    { href: '#services', label: 'Services' },
-    { href: '#gallery', label: 'Gallery' },
-    { href: '#contact', label: 'Contact' },
-  ];
-
   const scrollToSection = (sectionId) => {
     const element = document.querySelector(sectionId);
     if (element) {
       element.scrollIntoView({ behavior: 'smooth' });
-      setExpanded(false);
     }
   };
 
   return (
-    <>
-      <BootstrapNavbar expand="lg" className="navbar sticky-top" expanded={expanded}>
-        <Container>
-          <BootstrapNavbar.Brand href="#home" className="navbar-brand">
-            <div className="d-flex align-items-center">
-              <div className="bg-primary rounded-circle p-2 me-2">
-                <FaTruck className="text-white" />
-              </div>
-              <div>
-                <div className="fw-bold">XCAN ENGINEERING</div>
-                <div className="text-gray fs-6 d-none d-md-block">HOWO & Sinotruk Truck Specialists</div>
-              </div>
+    <BootstrapNavbar className="navbar navbar-nailbond sticky-top">
+      <Container>
+        <BootstrapNavbar.Brand 
+          href="#home" 
+          className="navbar-brand"
+          onClick={(e) => {
+            e.preventDefault();
+            scrollToSection('#home');
+          }}
+        >
+          <div className="d-flex align-items-center">
+            <img 
+              src="/images/logo.png" 
+              alt="XCAN Engineering Logo" 
+              className="navbar-logo"
+              style={{ height: '40px', width: 'auto', marginRight: '12px' }}
+            />
+            <div>
+              <div className="fw-bold">XCAN ENGINEERING</div>
+              <div className="text-gray fs-6 d-none d-md-block">HOWO & Sinotruk Truck Specialists</div>
             </div>
-          </BootstrapNavbar.Brand>
-          
-          <BootstrapNavbar.Toggle 
-            aria-controls="navbarNav" 
-            onClick={() => setExpanded(!expanded)}
-            className="navbar-toggler"
+          </div>
+        </BootstrapNavbar.Brand>
+        
+        <div className="navbar-nav-wrapper">
+          <ul className="navbar-nav mx-lg-auto">
+            <li className="nav-item">
+              <a className="nav-link" href="#home" onClick={(e) => { e.preventDefault(); scrollToSection('#home'); }}>Home</a>
+            </li>
+            <li className="nav-item">
+              <a className="nav-link" href="#about" onClick={(e) => { e.preventDefault(); scrollToSection('#about'); }}>About</a>
+            </li>
+            <li className="nav-item">
+              <a className="nav-link" href="#services" onClick={(e) => { e.preventDefault(); scrollToSection('#services'); }}>Services</a>
+            </li>
+            <li className="nav-item">
+              <a className="nav-link" href="#trucks" onClick={(e) => { e.preventDefault(); scrollToSection('#trucks'); }}>Pricing</a>
+            </li>
+            <li className="nav-item">
+              <a className="nav-link" href="#gallery" onClick={(e) => { e.preventDefault(); scrollToSection('#gallery'); }}>Gallery</a>
+            </li>
+            <li className="nav-item">
+              <a className="nav-link" href="#contact" onClick={(e) => { e.preventDefault(); scrollToSection('#contact'); }}>Contact</a>
+            </li>
+          </ul>
+          <a 
+            href="https://wa.me/2347034700040" 
+            target="_blank" 
+            rel="noopener noreferrer"
+            className="nav-whatsapp-btn d-flex align-items-center"
           >
-            <FaBars />
-          </BootstrapNavbar.Toggle>
-          
-          <BootstrapNavbar.Collapse id="navbarNav">
-            <Nav className="ms-auto">
-              {navItems.map((item, index) => (
-                <Nav.Link
-                  key={index}
-                  href={item.href}
-                  className="nav-link"
-                  onClick={(e) => {
-                    e.preventDefault();
-                    scrollToSection(item.href);
-                  }}
-                >
-                  {item.label}
-                </Nav.Link>
-              ))}
-              <Nav.Link
-                href="#schedule"
-                className="nav-link d-lg-none"
-                onClick={(e) => {
-                  e.preventDefault();
-                  scrollToSection('#schedule');
-                }}
-              >
-                <FaCalendarAlt /> Schedule
-              </Nav.Link>
-            </Nav>
-          </BootstrapNavbar.Collapse>
-        </Container>
-      </BootstrapNavbar>
-    </>
+            <FaWhatsapp className="me-2" size={16} />
+            <span className="nav-btn-text">WhatsApp</span>
+          </a>
+        </div>
+      </Container>
+    </BootstrapNavbar>
   );
 };
 

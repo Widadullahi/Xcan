@@ -1,33 +1,33 @@
 import React from 'react';
 import { Container, Row, Col, Card, Button, Badge } from 'react-bootstrap';
-import { FaWhatsapp, FaTruck, FaCog, FaShippingFast } from 'react-icons/fa';
+import { FaWhatsapp, FaShippingFast } from 'react-icons/fa';
 
 const PartsSection = () => {
   const categories = [
     {
       title: 'Complete Trucks',
-      icon: <FaTruck size={40} />,
+      image: '/images/12.jpeg',
       description: 'Brand new, direct tokunbo, and China refurbished heavy duty trucks',
       brands: ['HOWO', 'SINOTRUK', 'DAF', 'IVECO', 'Volvo', 'MAN Diesel'],
       items: ['Dump Trucks', 'Tractor Heads', 'Cargo Trucks', 'Mixers']
     },
     {
       title: 'Engines & Gearboxes',
-      icon: <FaCog size={40} />,
+      image: '/images/3.jpeg',
       description: 'Complete engines and transmission systems for all major brands',
       brands: ['HOWO', 'SINOTRUK', 'DAF', 'IVECO', 'Volvo', 'MAN Diesel'],
       items: ['Complete Engines', 'Gear Boxes', 'Engine Parts', 'Transmission Parts']
     },
     {
       title: 'Axles & Suspensions',
-      icon: <FaTruck size={40} />,
+      image: '/images/2.jpeg',
       description: 'Complete axles, springs, and suspension systems',
       brands: ['HOWO', 'SINOTRUK', 'DAF', 'IVECO', 'Volvo', 'MAN Diesel'],
       items: ['Front Axles', 'Rear Axles', 'Air Suspensions', 'Leaf Springs']
     },
     {
       title: 'Spare Parts',
-      icon: <FaCog size={40} />,
+      image: '/images/5.jpeg',
       description: 'Genuine spare parts for engines, gearboxes, and all truck systems',
       brands: ['HOWO', 'SINOTRUK', 'DAF', 'IVECO', 'Volvo', 'MAN Diesel'],
       items: ['Engine Parts', 'Electrical Parts', 'Air System Parts', 'Brake Components']
@@ -35,8 +35,8 @@ const PartsSection = () => {
   ];
 
   const handleWhatsAppInquiry = (category) => {
-    const message = encodeURIComponent(`Hello XCAN! I'm interested in ${category}. Please send available options and prices.`);
-    window.open(`https://wa.me/2347034700040?text=${message}`, '_blank');
+    const message = encodeURIComponent('Hello XCAN! I am interested in ' + category + '. Please send available options and prices.');
+    window.open('https://wa.me/2347034700040?text=' + message, '_blank');
   };
 
   return (
@@ -66,10 +66,13 @@ const PartsSection = () => {
           {categories.map((category, index) => (
             <Col md={6} lg={3} key={index} className="mb-4">
               <Card className="h-100 parts-card">
+                <Card.Img 
+                  variant="top" 
+                  src={category.image} 
+                  alt={category.title}
+                  style={{ height: '150px', objectFit: 'cover' }}
+                />
                 <Card.Body className="text-center">
-                  <div className="parts-icon mb-3">
-                    {category.icon}
-                  </div>
                   <Card.Title>{category.title}</Card.Title>
                   <Card.Text className="text-muted">
                     {category.description}
@@ -108,34 +111,6 @@ const PartsSection = () => {
           ))}
         </Row>
 
-        <Row className="mt-4">
-          <Col>
-            <div className="conditions-notice text-center p-3 bg-primary bg-opacity-10 rounded">
-              <h6 className="mb-2">Product Conditions Available:</h6>
-              <div className="d-flex justify-content-center gap-3 flex-wrap">
-                <Badge bg="success">Brand New</Badge>
-                <Badge bg="info">Direct Tokunbo</Badge>
-                <Badge bg="warning" text="dark">China Refurbished</Badge>
-              </div>
-            </div>
-          </Col>
-        </Row>
-
-        <Row className="mt-4">
-          <Col className="text-center">
-            <p className="lead mb-3">
-              Need specific parts or have questions about compatibility?
-            </p>
-            <Button 
-              variant="primary" 
-              size="lg"
-              href="https://wa.me/2347034700040?text=Hello%20XCAN!%20I%20need%20help%20finding%20specific%20truck%20parts."
-              target="_blank"
-            >
-              <FaWhatsapp className="me-2" /> Contact Us for Parts
-            </Button>
-          </Col>
-        </Row>
       </Container>
     </section>
   );

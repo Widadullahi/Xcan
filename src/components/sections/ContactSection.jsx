@@ -251,25 +251,6 @@ const ContactSection = () => {
           </Col>
         </Row>
 
-        <Row className="mt-5">
-          <Col className="text-center">
-            <div className="business-notice p-4 bg-primary bg-opacity-10 rounded">
-              <h5 className="mb-3">Ready to Do Business?</h5>
-              <p className="mb-3">
-                We treat every customer with honesty and integrity. 
-                Whether you need one truck or a complete fleet, we're here to help.
-              </p>
-              <Button 
-                variant="primary" 
-                size="lg"
-                href="https://wa.me/2347034700040?text=Hello%20Mr.%20Edeh!%20I'm%20ready%20to%20do%20business%20with%20XCAN%20Engineering."
-                target="_blank"
-              >
-                <FaWhatsapp className="me-2" /> Start Conversation Now
-              </Button>
-            </div>
-          </Col>
-        </Row>
       </Container>
     </section>
   );

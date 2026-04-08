@@ -58,7 +58,10 @@ const ScheduleSection = () => {
   };
 
   return (
-    <section className="schedule-section section-padding" id="schedule">
+    <section className="schedule-section section-padding" id="schedule" style={{
+      background: 'rgba(0, 86, 179, 0.05)',
+      backdropFilter: 'blur(10px)'
+    }}>
       <Container>
         <div className="section-title">
           <h2>SCHEDULE SERVICE</h2>
