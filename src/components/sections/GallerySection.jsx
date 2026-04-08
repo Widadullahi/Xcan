@@ -1,6 +1,128 @@
 import React, { useState } from 'react';
 import { Container, Row, Col, Card, Button } from 'react-bootstrap';
-import { FaTruck, FaCog, FaTools, FaShippingFast, FaChevronLeft, FaChevronRight } from 'react-icons/fa';
+import { FaTruck, FaCog, FaTools, FaChevronLeft, FaChevronRight } from 'react-icons/fa';
+
+const galleryItems = [
+  {
+    id: 1,
+    image: '/images/1.jpeg',
+    title: 'Heavy Duty Truck',
+    category: 'Trucks',
+    icon: <FaTruck />
+  },
+  {
+    id: 2,
+    image: '/images/2.jpeg',
+    title: 'Truck Suspension System',
+    category: 'Parts',
+    icon: <FaCog />
+  },
+  {
+    id: 3,
+    image: '/images/3.jpeg',
+    title: 'Engine & Gearbox',
+    category: 'Parts',
+    icon: <FaCog />
+  },
+  {
+    id: 4,
+    image: '/images/4.jpeg',
+    title: 'Truck Service',
+    category: 'Services',
+    icon: <FaTools />
+  },
+  {
+    id: 5,
+    image: '/images/5.jpeg',
+    title: 'Spare Parts',
+    category: 'Parts',
+    icon: <FaCog />
+  },
+  {
+    id: 6,
+    image: '/images/6.jpeg',
+    title: 'Heavy Duty Truck',
+    category: 'Trucks',
+    icon: <FaTruck />
+  },
+  {
+    id: 7,
+    image: '/images/7.jpeg',
+    title: 'HOWO Heavy Duty Truck',
+    category: 'Trucks',
+    icon: <FaTruck />
+  },
+  {
+    id: 8,
+    image: '/images/8.jpeg',
+    title: 'Truck Maintenance',
+    category: 'Services',
+    icon: <FaTools />
+  },
+  {
+    id: 9,
+    image: '/images/9.jpeg',
+    title: 'Heavy Duty Truck',
+    category: 'Trucks',
+    icon: <FaTruck />
+  },
+  {
+    id: 10,
+    image: '/images/10.jpeg',
+    title: 'Truck Parts',
+    category: 'Parts',
+    icon: <FaCog />
+  },
+  {
+    id: 11,
+    image: '/images/11.jpeg',
+    title: 'Heavy Duty Truck',
+    category: 'Trucks',
+    icon: <FaTruck />
+  },
+  {
+    id: 12,
+    image: '/images/12.jpeg',
+    title: 'Complete Truck',
+    category: 'Trucks',
+    icon: <FaTruck />
+  },
+  {
+    id: 13,
+    image: '/images/13.jpeg',
+    title: 'SINOTRUK Heavy Duty Truck',
+    category: 'Trucks',
+    icon: <FaTruck />
+  },
+  {
+    id: 14,
+    image: '/images/14.jpeg',
+    title: 'Truck Service',
+    category: 'Services',
+    icon: <FaTools />
+  },
+  {
+    id: 15,
+    image: '/images/15.jpeg',
+    title: 'Heavy Duty Truck',
+    category: 'Trucks',
+    icon: <FaTruck />
+  },
+  {
+    id: 16,
+    image: '/images/16.jpeg',
+    title: 'Truck Parts',
+    category: 'Parts',
+    icon: <FaCog />
+  },
+  {
+    id: 17,
+    image: '/images/17.jpeg',
+    title: 'Heavy Duty Truck',
+    category: 'Trucks',
+    icon: <FaTruck />
+  }
+];
 
 const GallerySection = () => {
   const [currentIndex, setCurrentIndex] = useState(0);
@@ -14,128 +136,6 @@ const GallerySection = () => {
     }, 3000);
     return () => clearInterval(interval);
   }, []);
-
-  const galleryItems = [
-    {
-      id: 1,
-      image: '/images/1.jpeg',
-      title: 'Heavy Duty Truck',
-      category: 'Trucks',
-      icon: <FaTruck />
-    },
-    {
-      id: 2,
-      image: '/images/2.jpeg',
-      title: 'Truck Suspension System',
-      category: 'Parts',
-      icon: <FaCog />
-    },
-    {
-      id: 3,
-      image: '/images/3.jpeg',
-      title: 'Engine & Gearbox',
-      category: 'Parts',
-      icon: <FaCog />
-    },
-    {
-      id: 4,
-      image: '/images/4.jpeg',
-      title: 'Truck Service',
-      category: 'Services',
-      icon: <FaTools />
-    },
-    {
-      id: 5,
-      image: '/images/5.jpeg',
-      title: 'Spare Parts',
-      category: 'Parts',
-      icon: <FaCog />
-    },
-    {
-      id: 6,
-      image: '/images/6.jpeg',
-      title: 'Heavy Duty Truck',
-      category: 'Trucks',
-      icon: <FaTruck />
-    },
-    {
-      id: 7,
-      image: '/images/7.jpeg',
-      title: 'HOWO Heavy Duty Truck',
-      category: 'Trucks',
-      icon: <FaTruck />
-    },
-    {
-      id: 8,
-      image: '/images/8.jpeg',
-      title: 'Truck Maintenance',
-      category: 'Services',
-      icon: <FaTools />
-    },
-    {
-      id: 9,
-      image: '/images/9.jpeg',
-      title: 'Heavy Duty Truck',
-      category: 'Trucks',
-      icon: <FaTruck />
-    },
-    {
-      id: 10,
-      image: '/images/10.jpeg',
-      title: 'Truck Parts',
-      category: 'Parts',
-      icon: <FaCog />
-    },
-    {
-      id: 11,
-      image: '/images/11.jpeg',
-      title: 'Heavy Duty Truck',
-      category: 'Trucks',
-      icon: <FaTruck />
-    },
-    {
-      id: 12,
-      image: '/images/12.jpeg',
-      title: 'Complete Truck',
-      category: 'Trucks',
-      icon: <FaTruck />
-    },
-    {
-      id: 13,
-      image: '/images/13.jpeg',
-      title: 'SINOTRUK Heavy Duty Truck',
-      category: 'Trucks',
-      icon: <FaTruck />
-    },
-    {
-      id: 14,
-      image: '/images/14.jpeg',
-      title: 'Truck Service',
-      category: 'Services',
-      icon: <FaTools />
-    },
-    {
-      id: 15,
-      image: '/images/15.jpeg',
-      title: 'Heavy Duty Truck',
-      category: 'Trucks',
-      icon: <FaTruck />
-    },
-    {
-      id: 16,
-      image: '/images/16.jpeg',
-      title: 'Truck Parts',
-      category: 'Parts',
-      icon: <FaCog />
-    },
-    {
-      id: 17,
-      image: '/images/17.jpeg',
-      title: 'Heavy Duty Truck',
-      category: 'Trucks',
-      icon: <FaTruck />
-    }
-  ];
 
   const nextSlide = () => {
     setCurrentIndex((prevIndex) => 

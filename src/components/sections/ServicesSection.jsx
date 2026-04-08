@@ -1,5 +1,5 @@
 import React from 'react';
-import { Container, Row, Col, Card, Button, Badge } from 'react-bootstrap';
+import { Row, Col, Card, Button, Badge } from 'react-bootstrap';
 import { FaTools, FaWrench, FaOilCan, FaCheckCircle, FaWhatsapp } from 'react-icons/fa';
 
 const ServicesSection = ({ onBookService }) => {

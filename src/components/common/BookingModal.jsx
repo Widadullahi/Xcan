@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
-import { Modal, Button, Form, Row, Col, Alert, Badge } from 'react-bootstrap';
-import { FaCalendarCheck, FaEnvelope, FaInfoCircle, FaCheck } from 'react-icons/fa';
+import { Modal, Button, Form, Row, Col, Alert } from 'react-bootstrap';
+import { FaEnvelope, FaInfoCircle, FaCheck } from 'react-icons/fa';
 
 const BookingModal = ({ show, onHide, serviceType, price }) => {
   const [step, setStep] = useState(1);
@@ -63,10 +63,6 @@ const BookingModal = ({ show, onHide, serviceType, price }) => {
         [name]: null
       }));
     }
-  };
-
-  const validateStep1 = () => {
-    return bookingData.serviceType && bookingData.pricePerTruck;
   };
 
   const validateStep2 = () => {
@@ -132,7 +128,7 @@ const BookingModal = ({ show, onHide, serviceType, price }) => {
   };
 
   const generateEmailBody = () => {
-    const { subtotal, discount, total } = calculateTotal();
+    const { discount, total } = calculateTotal();
     const serviceName = services[bookingData.serviceType]?.name || bookingData.serviceType;
     
     const emailBody = `XCAN Truck Services

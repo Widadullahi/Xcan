@@ -1,10 +1,8 @@
-import React, { useState } from 'react';
+import React from 'react';
 import { Container, Row, Col } from 'react-bootstrap';
 import TruckCard from '../ui/TruckCard';
 
 const TrucksSection = () => {
-  const [showDetails, setShowDetails] = useState(null);
-
   const trucksData = [
     {
       id: 1,
