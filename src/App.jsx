@@ -17,6 +17,7 @@ import ServicesSection from './components/sections/ServicesSection';
 import CorporateSection from './components/sections/CorporateSection';
 import ScheduleSection from './components/sections/ScheduleSection';
 import GallerySection from './components/sections/GallerySection';
+import VideoShowcaseSection from './components/sections/VideoShowcaseSection';
 import Testimonials from './components/sections/Testimonials';
 import ContactSection from './components/sections/ContactSection';
 
@@ -45,6 +46,7 @@ function App() {
         <ServicesSection onBookService={handleBookService} />
         <CorporateSection />
         <ScheduleSection />
+        <VideoShowcaseSection />
         <GallerySection />
         <Testimonials />
         <ContactSection />

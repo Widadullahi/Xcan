@@ -81,6 +81,12 @@ a:hover {
   }
 }
 
+@media (min-width: 1200px) {
+  .section-padding {
+    padding: 80px 0;
+  }
+}
+
 /* Section Title */
 .section-title {
   text-align: center;
@@ -281,7 +287,94 @@ a:hover {
 }
 
 .navbar-nav {
-  display: none !important;
+  display: flex !important;
+  flex-direction: row;
+  align-items: center;
+  gap: 8px;
+  margin: 0;
+  padding: 0;
+}
+
+.navbar-nav .nav-item {
+  width: auto;
+}
+
+.nav-link {
+  color: var(--text-secondary) !important;
+  font-weight: 500;
+  padding: 12px 16px !important;
+  position: relative;
+  transition: var(--transition);
+  text-decoration: none;
+  display: block;
+  border-left: 3px solid transparent;
+}
+
+.nav-link:hover {
+  color: var(--primary) !important;
+  background: rgba(0, 86, 179, 0.05);
+  border-left-color: var(--primary);
+}
+
+.nav-link::after {
+  content: '';
+  position: absolute;
+  bottom: -2px;
+  left: 0;
+  width: 0;
+  height: 2px;
+  background: var(--primary);
+  transition: var(--transition);
+}
+
+.nav-link:hover::after {
+  width: 100%;
+}
+
+/* Dropdown Styles */
+.dropdown-menu {
+  background-color: white;
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  box-shadow: var(--shadow-lg);
+  padding: 8px 0;
+  margin-top: 8px;
+}
+
+.dropdown-item {
+  color: var(--text-secondary) !important;
+  padding: 12px 20px;
+  font-weight: 500;
+  transition: var(--transition);
+}
+
+.dropdown-item:hover {
+  background-color: rgba(0, 86, 179, 0.05);
+  color: var(--primary) !important;
+}
+
+.dropdown-toggle::after {
+  margin-left: 8px;
+  border: none;
+  content: "▼";
+  font-size: 0.7rem;
+  color: var(--text-muted);
+  transition: var(--transition);
+}
+
+.dropdown-toggle:hover::after {
+  color: var(--primary);
+}
+
+/* Hide dropdown arrows on mobile */
+@media (max-width: 991px) {
+  .dropdown-toggle::after {
+    display: none;
+  }
+  
+  .navbar-nav .dropdown {
+    display: none !important;
+  }
 }
 
 /* Hero Section - Professional Design */
@@ -293,8 +386,8 @@ a:hover {
   display: flex;
   align-items: center;
   overflow: hidden;
-  margin-top: -70px;
-  padding-top: 70px;
+  margin-top: 0;
+  padding-top: 84px;
 }
 
 .hero-bg-pattern {
@@ -617,9 +710,15 @@ a:hover {
   }
 }
 
+@media (min-width: 1200px) {
+  .video-showcase-player {
+    max-height: 550px !important;
+  }
+}
+
 @media (max-width: 768px) {
   .hero-section {
-    padding: 60px 0 30px;
+    padding: 92px 0 30px;
     min-height: auto;
   }
   
@@ -760,6 +859,12 @@ a:hover {
 .truck-card img {
   height: 220px;
   object-fit: cover;
+}
+
+@media (min-width: 1200px) {
+  .truck-card img {
+    height: 300px;
+  }
 }
 
 .truck-title {
@@ -1361,7 +1466,7 @@ footer a:hover {
 /* Responsive */
 @media (max-width: 768px) {
   .hero-section {
-    padding: 80px 0 50px;
+    padding: 92px 0 50px;
     min-height: 60vh;
   }
   

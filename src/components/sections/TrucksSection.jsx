@@ -68,7 +68,7 @@ const TrucksSection = () => {
 
         <Row>
           {trucksData.map((truck) => (
-            <Col md={6} key={truck.id} className="mb-4">
+            <Col lg={6} xl={6} key={truck.id} className="mb-4">
               <TruckCard 
                 truck={truck}
                 onViewDetails={() => showSpecifications(truck.title)}
