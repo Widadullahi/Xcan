@@ -366,6 +366,60 @@ a:hover {
   color: var(--primary);
 }
 
+/* Mobile Menu Styles */
+.mobile-nav-link {
+  color: var(--text-primary) !important;
+  font-weight: 500;
+  font-size: 1rem;
+  transition: var(--transition);
+  text-decoration: none;
+}
+
+.mobile-nav-link:hover {
+  color: var(--primary) !important;
+  background-color: rgba(0, 86, 179, 0.05);
+}
+
+.mobile-nav-section {
+  border-bottom: 1px solid var(--border-light);
+}
+
+.mobile-nav-header {
+  color: var(--primary);
+  font-size: 0.9rem;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  margin-bottom: 5px;
+}
+
+.mobile-nav-sublink {
+  color: var(--text-secondary) !important;
+  font-size: 0.9rem;
+  font-weight: 400;
+  transition: var(--transition);
+  text-decoration: none;
+}
+
+.mobile-nav-sublink:hover {
+  color: var(--primary) !important;
+  background-color: rgba(0, 86, 179, 0.03);
+}
+
+/* Offcanvas customization */
+.offcanvas {
+  width: 280px !important;
+  background-color: white;
+}
+
+.offcanvas-header {
+  background-color: var(--bg-alt);
+  padding: 1rem;
+}
+
+.offcanvas-body {
+  background-color: white;
+}
+
 /* Hide dropdown arrows on mobile */
 @media (max-width: 991px) {
   .dropdown-toggle::after {
