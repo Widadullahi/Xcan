@@ -119,9 +119,20 @@ const ScheduleSection = () => {
                       required
                     >
                       <option value="">Select service type</option>
-                      <option value="Basic Maintenance">Basic Maintenance (₦50,000)</option>
-                      <option value="Standard Repair">Standard Repair (₦300,000)</option>
-                      <option value="Major Overhaul">Major Overhaul (₦2,000,000)</option>
+                      <option value="Air System Repair">Air System Repair</option>
+                      <option value="Transmission & Gear Box Repair">Transmission & Gear Box Repair</option>
+                      <option value="Engine Repair">Engine Repair</option>
+                      <option value="Suspension Repair">Suspension Repair</option>
+                      <option value="Tyres Changing">Tyres Changing</option>
+                      <option value="Electrical & Rewire Repair">Electrical & Rewire Repair</option>
+                      <option value="Body Repair Services">Body Repair Services</option>
+                      <option value="Brake Master">Brake Master</option>
+                      <option value="Body Construction">Body Construction</option>
+                      <option value="Convert Service">Convert Service</option>
+                      <option value="Truck Assembling">Truck Assembling</option>
+                      <option value="Truck Rebuilding">Truck Rebuilding</option>
+                      <option value="Standard Repair Service (Contract)">Standard Repair Service - ₦1,500,000 (Contract)</option>
+                      <option value="Major Overhaul (Contract)">Major Overhaul - ₦3,000,000 (Contract)</option>
                       <option value="Inspection Only">Inspection Only</option>
                       <option value="Other">Other</option>
                     </Form.Select>
@@ -161,17 +172,18 @@ const ScheduleSection = () => {
                   </Row>
 
                   <Form.Group className="mb-3">
-                    <Form.Label>Service Location</Form.Label>
-                    <Form.Select
+                    <Form.Label><FaMapMarkerAlt className="me-2" />Service Location Address</Form.Label>
+                    <Form.Control
+                      type="text"
                       name="location"
                       value={formData.location}
                       onChange={handleChange}
+                      placeholder="Enter your location or address where service is needed"
                       required
-                    >
-                      <option value="">Select location</option>
-                      <option value="XCAN Workshop">At XCAN Workshop</option>
-                      <option value="My Location">At My Location (On-site)</option>
-                    </Form.Select>
+                    />
+                    <Form.Text className="text-muted">
+                      Since we offer on-site services, please provide your location address
+                    </Form.Text>
                   </Form.Group>
 
                   <Form.Group className="mb-3">
@@ -199,6 +211,14 @@ const ScheduleSection = () => {
                       placeholder="Describe your truck(s) and any specific issues..."
                     />
                   </Form.Group>
+
+                  <div className="mb-4 p-3 bg-warning bg-opacity-10 rounded border border-warning">
+                    <small className="text-danger fw-bold">
+                      ⚠️ <strong>IMPORTANT PRICING NOTE:</strong><br/>
+                      All service prices shown are for SERVICE CHARGES ONLY.<br/>
+                      Spare parts and materials are NOT included in the quoted prices and will be charged separately.
+                    </small>
+                  </div>
 
                   <div className="text-center">
                     <Button 
